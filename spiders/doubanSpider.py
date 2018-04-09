@@ -18,6 +18,11 @@ class DoubanspiderSpider(scrapy.Spider):
         yield Request(url, headers=self.headers)
 
     def parse(self, response):
+        # 命令行调试代码
+        # from scrapy.shell import inspect_response
+        # inspect_response(response, self)
+
+
         item = DoubanMovieItem()
         #使用Xpath进行解析
         movies = response.xpath('//ol[@class="grid_view"]/li')
